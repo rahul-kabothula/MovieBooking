@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="javascripts/post.js"></script>
+</head>
+<body>
+    <nav class="navigationBar">
+        <div class="nav-list">
+            <div class="item"><a href="login.html">Login</a></div>
+            <div class="item"><a href="register.html">Register</a></div>
+            <div class="item"><a href="post.html">Post</a></div>
+        </div>
+    </nav>
+
+    <h2 class="postHeader">Post Note</h2>
+    <div class="postContainer">
+        <form id="postForm" action="process_post.php" method="POST">
+            <label for="postText">Post</label><br>
+            <textarea rows="10" cols="50" id="postText" name="postText" required></textarea>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

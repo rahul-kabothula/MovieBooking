@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="javascripts/user.js"></script>
+</head>
+<body>
+    <nav class="navigationBar">
+        <div class="nav-list">
+            <div class="item"><a href="login.html">Login</a></div>
+            <div class="item"><a href="register.html">Register</a></div>
+            <div class="item"><a href="post.html">Post</a></div>
+        </div>
+    </nav>
+
+    <div class="left-container">
+        <img src="images/movieTicketHomeImage.jpg" alt="movieTicketHomeImage" width="750" height="800">
+    </div>
+    <div class="right-container">
+        <h2 class="registrationHeader">Registration Page</h2>
+        <div class="registrationContainer">
+            <form id="registrationForm" action="" method="post">
+                <div class="registrationFName">
+                    <label for="RegFirstName">First Name</label>
+                    <input type="text" id="RegFirstName" name="firstName"><br><br>
+                </div>
+                <div class="registrationLName">
+                    <label for="RegLastName">Last Name</label>
+                    <input type="text" id="RegLastName" name="lastName"><br><br>
+                </div>
+                <div class="registrationEmail">
+                    <label for="RegEmail">Email</label>
+                    <input type="email" id="RegEmail" name="email"><br><br>
+                </div>
+                <div class="registrationPassword">
+                    <label for="RegPassword">Password</label>
+                    <input type="password" id="RegPassword" name="password"><br><br>
+                </div>
+                <div class="registrationSubmit">
+                    <button type="submit" id="RegSubmit">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

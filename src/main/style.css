@@ -1,0 +1,187 @@
+body{
+    font-family: "Arial", sans-serif;
+    background-color: rgb(190, 200, 200);;
+}
+
+.navigationBar{
+    background-color: #1877F2;
+    width: auto;
+    height: 60px;
+    corner: round;
+    border-radius: 5px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+}
+
+.item {
+    text-align: center;
+    padding: 20px;
+}
+
+.item a {
+    text-decoration: none;
+    color: white;
+    size: 30px;
+    font-size: 18px;
+}
+
+.left-container {
+    width: 50%; /* Adjust the width as needed */
+    float: left; /* Float the left container to the left */
+}
+
+.right-container {
+    width: 50%; /* Adjust the width as needed */
+    float: left; /* Float the right container to the left */
+}
+
+.loginHeader{
+    text-align: center;
+    padding-top: 150px;
+}
+
+.loginContainer{
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 10px 4px 60px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 20px;
+    max-width: 400px;
+    height: 150px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.loginEmail{
+    padding-top: 20px;
+}
+
+.loginEmail label{
+    padding-right: 40px;
+}
+
+.loginEmail input{
+    width: 150px;
+    height: 20px;
+}
+
+.loginPassword label{
+    padding-right: 10px;
+}
+
+.loginPassword input{
+    width: 150px;
+    height: 20px;
+}
+
+.loginSubmit input{
+    width: 80px;
+    height: 30px;
+    background-color: #1877F2;
+    border-radius: 5px;
+}
+
+.registrationHeader{
+    text-align: center;
+    padding-top: 100px;
+}
+
+.registrationContainer{
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 10px 4px 60px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 20px;
+    max-width: 400px;
+    height: 320px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.registrationFName{
+    padding-top: 20px;
+}
+
+.registrationFName label{
+    padding-right: 10px;
+}
+
+.registrationFName input{
+    width: 150px;
+    height: 20px;
+}
+
+.registrationLName{
+    padding-top: 20px;
+}
+
+.registrationLName label{
+    padding-right: 10px;
+}
+
+.registrationLName input{
+    width: 150px;
+    height: 20px;
+}
+
+.registrationEmail{
+    padding-top: 20px;
+}
+
+.registrationEmail label{
+    padding-right: 53px;
+}
+
+.registrationEmail input{
+    width: 150px;
+    height: 20px;
+}
+
+.registrationPassword{
+    padding-top: 20px;
+}
+
+.registrationPassword label{
+    padding-right: 20px;
+}
+
+.registrationPassword input{
+    width: 150px;
+    height: 20px;
+}
+
+.registrationSubmit input{
+    width: 80px;
+    height: 30px;
+    background-color: #1877F2;
+    border-radius: 5px;
+}
+
+.postHeader{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.postContainer{
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.postContainer textarea{
+    border-radius: 10px;
+}
+
+.postContainer input{
+    width: 80px;
+    height: 30px;
+    background-color: #1877F2;
+    border-radius: 5px;
+}
