@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="my_bookings_style.css">
+</head>
+<body>
+  <nav class="navigationBar">
+    <div class="nav-list">
+      <div class="item"><a href="available_movies.html">Home</a></div>
+      <div class="item"><a href="my_bookings.html">My Bookings</a></div>
+      <div class="item"><a href="profile.html">Profile</a></div>
+      <div class="item"><a href="logout.html">Logout</a></div>
+    </div>
+  </nav>
+
+  <div class="background-container">
+    <img src="./images/movieTicketHomeImage.jpg" alt="Background Image">
+    <div class="overlay"></div>
+    <div class="content">
+      <h2>Bookings</h2>
+
+      <table id="bookings_table">
+        <thead>
+        <tr>
+          <th>Booking Id</th>
+          <th>Movie Name</th>
+          <th>Theatre Name</th>
+          <th>Movie Time</th>
+          <th>Screen</th>
+          <th>number Of Tickets</th>
+          <th>Booked Date</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="scripts/theatre.js"></script>
+
+</body>
+</html>

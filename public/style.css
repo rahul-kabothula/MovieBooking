@@ -4,7 +4,7 @@ body{
 }
 
 .navigationBar{
-    background-color: #1877F2;
+    background-color: rgb(100, 110, 110);
     width: auto;
     height: 60px;
     corner: round;

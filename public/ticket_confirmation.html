@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="ticket_confirmation.css">
+
+</head>
+
+<body>
+  <nav class="navigationBar">
+    <div class="nav-list">
+        <div class="item"><a href="available_movies.html">Home</a></div>
+        <div class="item"><a href="my_bookings.html">My Bookings</a></div>
+        <div class="item"><a href="profile.html">Profile</a></div>
+        <div class="item"><a href="logout.html">Logout</a></div>
+    </div>
+  </nav>
+
+  <h2> Ticket Booked </h2>
+  <div class="booking-info">
+
+      <ul id ='tkt_conf_details'>
+          <li><strong>Booking ID:</strong> <span id="tkt_conf_booking_id"></span> </li>
+          <li><strong>User ID:</strong> <span id="tkt_conf_user_id"></span> </li>
+          <li><strong>Movie Name:</strong> <span id="tkt_conf_movie_name"></span> </li>
+          <li><strong>Theatre Name:</strong> <span id="tkt_conf_theatre_name"></span> </li>
+          <li><strong>Movie Timestamp:</strong> <span id="tkt_conf_movie_ts"></span> </li>
+          <li><strong>Screen:</strong> <span id="tkt_conf_screen"></span> </li>
+          <li><strong>Number of Tickets:</strong> <span id="tkt_conf_no_of_tkts"></span> </li>
+          <li><strong>Booking Timestamp:</strong> <span id="tkt_conf_booking_ts"></span> </li>
+      </ul>
+      <script type="module" src="scripts/theatre.js"></script>
+  </div>
+</body>
+</html>

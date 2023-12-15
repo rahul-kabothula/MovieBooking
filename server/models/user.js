@@ -43,55 +43,55 @@ createTable()
 
 // login(newUser);
 async function login(user) {
-  let userResult = await getUser(user.username)
+  let userResult = await getUser(user.userEmailId)
   if(!userResult[0]) throw Error("Username not found!!")
-  if(userResult[0].Password != user.password) throw Error("Password Incorrect!!")
+  if(userResult[0].userPassword != user.password) throw Error("Password Incorrect!!")
 
   return userResult[0]
 }
 
 // Register (Create) New User
 async function register(user) {
-  let userResult = await getUser(user.username)
+  let userResult = await getUser(user.userEmailId)
   if(userResult.length > 0) throw Error("Username already in use!!")
 
   let sql = `
-    INSERT INTO users(UserName, Password, Email)
-    VALUES("${user.username}", "${user.password}", "${user.email}")
+    INSERT INTO "MovieBooking"."User"("userName", "userPassword", "userEmailId")
+    VALUES('${user.userName}', '${user.userPassword}', '${user.userEmailId}')
   `
 
   await con.query(sql)
-  const newUser = await getUser(user.username)
+  const newUser = await getUser(user.userEmailId)
   return newUser[0]
 }
 
 // Update - CRUD
 async function editUser(user) {
-  let updatedUser = await getUser(user.username)
-  if(updatedUser.length > 0) throw Error("Username not available!")
+  let updatedUser = await getUser(user['userEmailId'])
+  if(updatedUser.length > 0) throw Error("User not available!")
 
-  let sql = `UPDATE users
-    SET UserName = "${user.username}"
-    WHERE UserId = ${user.UserId}
+  let sql = `UPDATE "MovieBooking"."User"
+    SET "userEmailId" = '${user['userEmailId']}'
+    WHERE "userId" = '${user['userId']}'
   `
   await con.query(sql)
-  updatedUser = await getUser(user.username)
+  updatedUser = await getUser(user['userEmailId'])
   return updatedUser[0]
 }
 
 // Delete User
-async function deleteUser(user) {
-  let sql = `DELETE FROM users
-    WHERE UserId = ${user.UserId}
+async function deleteUser(userId) {
+  let sql = `DELETE FROM "MovieBooking"."User"
+    WHERE "userId" = '${userId}'
   `
   await con.query(sql)
 }
 
 // Useful functions
-async function getUser(username) {
+async function getUser(userEmailId) {
   let sql = `
-    SELECT * FROM users
-    WHERE UserName = "${username}"
+    SELECT * FROM "MovieBooking"."User"
+    WHERE "userEmailId" = '${userEmailId}'
   `
   return await con.query(sql)
 }

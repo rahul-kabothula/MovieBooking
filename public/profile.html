@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Recipes | Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="profile_style.css">
+</head>
+<body>
+    <nav class="navigationBar">
+        <div class="nav-list">
+            <div class="item"><a href="available_movies.html">Home</a></div>
+            <div class="item"><a href="my_bookings.html">My Bookings</a></div>
+            <div class="item"><a href="profile.html">Profile</a></div>
+            <div class="item"><a href="logout.html">Logout</a></div>
+        </div>
+    </nav>
+    <div class="background-container">
+        <img src="./images/cat_profile.png" alt="Background Image">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>Your Profile</h2>
+
+            <ul id ='profile_details'>
+                <li><strong>ID: </strong> <span id="profile_user_id"></span> </li>
+                <li><strong>Name: </strong> <span id="profile_user_name"></span> </li>
+                <li><strong>Email:</strong> <span id="profile_user_email"></span> </li>
+            </ul>
+
+            <script type="module" src="scripts/user.js"></script>
+            <button id="profile_edit_btn">Edit Profile</button>
+            <button id="delete_account_btn">Delete Account</button>
+        </div>
+    </div>
+</body>
+</html>

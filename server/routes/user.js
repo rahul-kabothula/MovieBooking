@@ -24,7 +24,7 @@ router
   }
 })
 
-.put('/edit', async (req, res) => {
+.put('/edit_profile', async (req, res) => {
   try {
     let user = await User.editUser(req.body)
     res.send({...user, Password: undefined})
@@ -33,9 +33,10 @@ router
   }
 })
 
-.delete('/delete', async (req, res) => {
+.delete('/delete_account/:userId', async (req, res) => {
   try {
-    await User.deleteUser(req.body)
+    const userId = req.params.userId;
+    await User.deleteUser(userId)
     res.send({success: "Good Riddance >:("})
   } catch(err) {
     res.status(401).send({message: err.message})
