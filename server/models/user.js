@@ -1,6 +1,6 @@
 const con = require("./db_connect");
 
-async function createTable() {
+async function createUserTable() {
   let sql = `
 
     CREATE TABLE IF NOT EXISTS "MovieBooking"."User"
@@ -9,37 +9,20 @@ async function createTable() {
         "userName" character varying(50) COLLATE pg_catalog."default" NOT NULL,
         "userEmailId" character varying(50) COLLATE pg_catalog."default" NOT NULL,
         "userPassword" character varying(50) COLLATE pg_catalog."default" NOT NULL,
-        CONSTRAINT "user_pkey" PRIMARY KEY ("userId")
+        CONSTRAINT user_pkey PRIMARY KEY ("userId")
     )
 
     TABLESPACE pg_default;
 
-    ALTER TABLE IF EXISTS "MovieBooking"."user"
-        OWNER to postgres;`
+    ALTER TABLE IF EXISTS "MovieBooking"."User"
+        OWNER to postgres;
+  `
 
       await con.query(sql)
 }
 
-createTable()
+createUserTable()
 
-
-
-// contain all User entity database stuff
-// table creation
-//const users = [
-//  {
-//    username: "rahul",
-//    password: "rahul"
-//  },
-//  {
-//    username: "kabothula",
-//    password: "kabothula"
-//  },
-//  {
-//    username: "admin",
-//    password: "admin"
-//  }
-//]
 
 // login(newUser);
 async function login(user) {

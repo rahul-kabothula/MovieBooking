@@ -1,13 +1,14 @@
 const con = require("./db_connect");
 
-async function createTable() {
+async function createTheatreMovieTable() {
   let sql = `
     CREATE TABLE IF NOT EXISTS "MovieBooking"."TheatreMovie"
     (
         "theatreMovieId" character varying(50) COLLATE pg_catalog."default" NOT NULL,
         "theatreId" character varying(50) COLLATE pg_catalog."default" NOT NULL,
         "movieId" character varying(50) COLLATE pg_catalog."default" NOT NULL,
-        "screen" character varying COLLATE pg_catalog."default" NOT NULL,
+        screen character varying COLLATE pg_catalog."default" NOT NULL,
+        movie_ts timestamp without time zone,
         CONSTRAINT "TheatreMovie_pkey" PRIMARY KEY ("theatreMovieId"),
         CONSTRAINT "movieId_fkey" FOREIGN KEY ("movieId")
             REFERENCES "MovieBooking"."Movie" ("movieId") MATCH SIMPLE
@@ -22,12 +23,84 @@ async function createTable() {
     TABLESPACE pg_default;
 
     ALTER TABLE IF EXISTS "MovieBooking"."TheatreMovie"
-        OWNER to postgres;`
+        OWNER to postgres;
+  `
 
       await con.query(sql)
 }
 
-createTable()
+async function createTicketTable(){
+    let sql = `
+        CREATE TABLE IF NOT EXISTS "MovieBooking"."Ticket"
+        (
+            "bookingId" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+            "userId" integer NOT NULL,
+            "theatreMovieId" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+            "noOfTkts" bigint NOT NULL,
+            "bookingTimeStamp" timestamp without time zone NOT NULL,
+            CONSTRAINT "Ticket_pkey" PRIMARY KEY ("bookingId"),
+            CONSTRAINT tkt_theatre_movie_id_fkey FOREIGN KEY ("theatreMovieId")
+                REFERENCES "MovieBooking"."TheatreMovie" ("theatreMovieId") MATCH SIMPLE
+                ON UPDATE NO ACTION
+                ON DELETE CASCADE,
+            CONSTRAINT tkt_user_id_fkey FOREIGN KEY ("userId")
+                REFERENCES "MovieBooking"."User" ("userId") MATCH SIMPLE
+                ON UPDATE NO ACTION
+                ON DELETE CASCADE
+        )
+
+        TABLESPACE pg_default;
+
+        ALTER TABLE IF EXISTS "MovieBooking"."Ticket"
+            OWNER to postgres;
+    `;
+
+    await con.query(sql)
+}
+
+async function createTheatreTable(){
+    let sql = `
+        CREATE TABLE IF NOT EXISTS "MovieBooking"."Theatre"
+        (
+            "theatreId" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+            "theatreName" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+            "theatreAddress" character varying(100) COLLATE pg_catalog."default",
+            CONSTRAINT "Theatre_pkey" PRIMARY KEY ("theatreId")
+        )
+
+        TABLESPACE pg_default;
+
+        ALTER TABLE IF EXISTS "MovieBooking"."Theatre"
+            OWNER to postgres;
+    `;
+
+    await con.query(sql)
+}
+
+async function createMovieTable(){
+    let sql = `
+        CREATE TABLE IF NOT EXISTS "MovieBooking"."Movie"
+        (
+            "movieId" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+            "movieName" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+            "movieCrew" character varying(100) COLLATE pg_catalog."default",
+            "movieReleaseDate" time without time zone,
+            CONSTRAINT "Movie_pkey" PRIMARY KEY ("movieId")
+        )
+
+        TABLESPACE pg_default;
+
+        ALTER TABLE IF EXISTS "MovieBooking"."Movie"
+            OWNER to postgres;
+    `;
+
+    await con.query(sql)
+}
+
+createMovieTable()
+createTheatreTable()
+createTheatreMovieTable()
+createTicketTable()
 
 
 async function getAllTheatres(){
